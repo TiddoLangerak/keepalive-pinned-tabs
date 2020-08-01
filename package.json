@@ -1,0 +1,38 @@
+{
+  "name": "active-pinned-tab",
+  "version": "1.0.0",
+  "repository": "git@github.com:BlackGlory/active-pinned-tab.git",
+  "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
+    "clean": "rm -rf dist",
+    "build": "yarn clean && webpack --config webpack.prod.js",
+    "dev": "webpack -w --config webpack.dev.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^78.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "copy-webpack-plugin": "^6.0.3",
+    "eslint": "^7.6.0",
+    "husky": "^4.2.5",
+    "terser-webpack-plugin": "^3.0.8",
+    "ts-loader": "^8.0.1",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-extension-reloader": "^1.1.4",
+    "webpack-merge": "^5.0.9"
+  },
+  "dependencies": {
+    "extra-promise": "^0.7.1",
+    "webextension-polyfill": "^0.6.0"
+  }
+}
