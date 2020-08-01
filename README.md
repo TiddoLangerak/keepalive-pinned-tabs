@@ -8,6 +8,8 @@ You can pin frequently used tabs (music player, email, IM, etc.) and use them in
 
 Note: Please use "close tabs to the right" instead of "close window", otherwise the pinned tabs in the current window will be closed as well.
 
+[Chrome Web Store](https://chrome.google.com/webstore/detail/dldplpmpobeolcmolanaafacfcggjlpf)
+
 ## Screenshot
 
 ![](res/screenshot.png)
