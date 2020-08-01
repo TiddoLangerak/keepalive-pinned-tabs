@@ -1,16 +1,21 @@
-import { each } from 'extra-promise'
-import { retryTimeout } from './retry-timeout'
+import { each, retryUntil, delay } from 'extra-promise'
 
+let lastEventId = 0
 browser.windows.onFocusChanged.addListener(() => {
+  const eventId = ++lastEventId
+
   // Tabs cannot be edited when user dragging a tab, so retry it.
   // If you drag and drop tabs quickly, Chrome will crash, so add delay.
-  retryTimeout(100, async () => {
+  retryUntil(async () => {
     const tabIds = await getPinnedTabIds()
 
     await moveTabsToCurrentWindow(tabIds)
 
     // Since the tab will be unpinned after moving, pin them again.
     await each(tabIds, pinTab)
+  }, async () => {
+    await delay(100)
+    return eventId !== lastEventId
   })
 })
 
