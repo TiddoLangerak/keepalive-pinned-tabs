@@ -291,52 +291,52 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@typescript-eslint/eslint-plugin@^3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.7.1.tgz#d144c49a9a0ffe8dd704bb179c243df76c111bc9"
-  integrity sha512-3DB9JDYkMrc8Au00rGFiJLK2Ja9CoMP6Ut0sHsXp3ZtSugjNxvSSHTnKLfo4o+QmjYBJqEznDqsG1zj4F2xnsg==
+"@typescript-eslint/eslint-plugin@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.8.0.tgz#f82947bcdd9a4e42be7ad80dfd61f1dc411dd1df"
+  integrity sha512-lFb4VCDleFSR+eo4Ew+HvrJ37ZH1Y9ZyE+qyP7EiwBpcCVxwmUc5PAqhShCQ8N8U5vqYydm74nss+a0wrrCErw==
   dependencies:
-    "@typescript-eslint/experimental-utils" "3.7.1"
+    "@typescript-eslint/experimental-utils" "3.8.0"
     debug "^4.1.1"
     functional-red-black-tree "^1.0.1"
     regexpp "^3.0.0"
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-3.7.1.tgz#ab036caaed4c870d22531d41f9352f3147364d61"
-  integrity sha512-TqE97pv7HrqWcGJbLbZt1v59tcqsSVpWTOf1AqrWK7n8nok2sGgVtYRuGXeNeLw3wXlLEbY1MKP3saB2HsO/Ng==
+"@typescript-eslint/experimental-utils@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-3.8.0.tgz#ac1f7c88322dcfb7635ece6f0441516dd951099a"
+  integrity sha512-o8T1blo1lAJE0QDsW7nSyvZHbiDzQDjINJKyB44Z3sSL39qBy5L10ScI/XwDtaiunoyKGLiY9bzRk4YjsUZl8w==
   dependencies:
     "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/types" "3.7.1"
-    "@typescript-eslint/typescript-estree" "3.7.1"
+    "@typescript-eslint/types" "3.8.0"
+    "@typescript-eslint/typescript-estree" "3.8.0"
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-3.7.1.tgz#5d9ccecb116d12d9c6073e9861c57c9b1aa88128"
-  integrity sha512-W4QV/gXvfIsccN8225784LNOorcm7ch68Fi3V4Wg7gmkWSQRKevO4RrRqWo6N/Z/myK1QAiGgeaXN57m+R/8iQ==
+"@typescript-eslint/parser@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-3.8.0.tgz#8e1dcd404299bf79492409c81c415fa95a7c622b"
+  integrity sha512-u5vjOBaCsnMVQOvkKCXAmmOhyyMmFFf5dbkM3TIbg3MZ2pyv5peE4gj81UAbTHwTOXEwf7eCQTUMKrDl/+qGnA==
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
-    "@typescript-eslint/experimental-utils" "3.7.1"
-    "@typescript-eslint/types" "3.7.1"
-    "@typescript-eslint/typescript-estree" "3.7.1"
+    "@typescript-eslint/experimental-utils" "3.8.0"
+    "@typescript-eslint/types" "3.8.0"
+    "@typescript-eslint/typescript-estree" "3.8.0"
     eslint-visitor-keys "^1.1.0"
 
-"@typescript-eslint/types@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-3.7.1.tgz#90375606b2fd73c1224fe9e397ee151e28fa1e0c"
-  integrity sha512-PZe8twm5Z4b61jt7GAQDor6KiMhgPgf4XmUb9zdrwTbgtC/Sj29gXP1dws9yEn4+aJeyXrjsD9XN7AWFhmnUfg==
+"@typescript-eslint/types@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-3.8.0.tgz#58581dd863f86e0cd23353d94362bb90b4bea796"
+  integrity sha512-8kROmEQkv6ss9kdQ44vCN1dTrgu4Qxrd2kXr10kz2NP5T8/7JnEfYNxCpPkArbLIhhkGLZV3aVMplH1RXQRF7Q==
 
-"@typescript-eslint/typescript-estree@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-3.7.1.tgz#ce1ffbd0fa53f34d4ce851a7a364e392432f6eb3"
-  integrity sha512-m97vNZkI08dunYOr2lVZOHoyfpqRs0KDpd6qkGaIcLGhQ2WPtgHOd/eVbsJZ0VYCQvupKrObAGTOvk3tfpybYA==
+"@typescript-eslint/typescript-estree@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-3.8.0.tgz#0606d19f629f813dbdd5a34c7a1e895d6191cac6"
+  integrity sha512-MTv9nPDhlKfclwnplRNDL44mP2SY96YmPGxmMbMy6x12I+pERcxpIUht7DXZaj4mOKKtet53wYYXU0ABaiXrLw==
   dependencies:
-    "@typescript-eslint/types" "3.7.1"
-    "@typescript-eslint/visitor-keys" "3.7.1"
+    "@typescript-eslint/types" "3.8.0"
+    "@typescript-eslint/visitor-keys" "3.8.0"
     debug "^4.1.1"
     glob "^7.1.6"
     is-glob "^4.0.1"
@@ -344,10 +344,10 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@typescript-eslint/visitor-keys@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-3.7.1.tgz#b90191e74efdee656be8c5a30f428ed16dda46d1"
-  integrity sha512-xn22sQbEya+Utj2IqJHGLA3i1jDzR43RzWupxojbSWnj3nnPLavaQmWe5utw03CwYao3r00qzXfgJMGNkrzrAA==
+"@typescript-eslint/visitor-keys@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-3.8.0.tgz#ad35110249fb3fc30a36bfcbfeea93e710cfaab1"
+  integrity sha512-gfqQWyVPpT9NpLREXNR820AYwgz+Kr1GuF3nf1wxpHD6hdxI62tq03ToomFnDxY0m3pUB39IF7sil7D5TQexLA==
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
@@ -1726,15 +1726,15 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extra-promise@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-0.7.1.tgz#f98d71cfaf0333bcb8a750b83b2e978d4f96ef80"
-  integrity sha512-j1o0ma0zJWN3odiQ/xTFAJGs11hs+RdvBX5rpN8Sfk4UsFttlZwMsku1pXjVnOB9+XO4AfaUWWqykdwxUfQm7A==
+extra-promise@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-0.8.0.tgz#5ad8e8a5bcdac899cae59733e516231ea5fe08bc"
+  integrity sha512-t3jJoqHY68YkY9uzDUvZ+DCRJeIQ3WP/wowkBDlp/PUOZ+DFslfSdS3b53rhT3ZhMyg2j/cNUvBm+6d0Fr6uKw==
   dependencies:
     eventemitter3 "^4.0.4"
     iterable-operator "^0.11.0"
     reflect-metadata "^0.1.13"
-    return-style "^0.7.0"
+    return-style "^0.8.0"
 
 fast-deep-equal@^3.1.1:
   version "3.1.3"
@@ -2450,7 +2450,7 @@ iterable-operator@^0.11.0:
   resolved "https://registry.yarnpkg.com/iterable-operator/-/iterable-operator-0.11.0.tgz#669a9a000f2e28df03654ad12d3ccac5524f69bd"
   integrity sha512-EL7IyBZ1hwn1Q5HUJ24TMY3hq49PJmuMAFY/G0QqE0kmW9+ZdkUHAKxAUErIkozKTba5fmu2cY41wTiMJCVKYw==
 
-jest-worker@^26.1.0:
+jest-worker@^26.2.1:
   version "26.2.1"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.2.1.tgz#5d630ab93f666b53f911615bc13e662b382bd513"
   integrity sha512-+XcGMMJDTeEGncRb5M5Zq9P7K4sQ1sirhjdOxsN1462h6lFo9w59bl2LVQmdGEEeU3m+maZCkS2Tcc9SfCHO4A==
@@ -3643,10 +3643,10 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-return-style@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/return-style/-/return-style-0.7.0.tgz#c1b5ed2bf6cdba85543411866974946fcdb01be3"
-  integrity sha512-Or+FRgiKy1Z3pDhsKqeaasI+6TqZ0gy0EZ80J6ZDexpscs78zScbI7EYHp42/cfxoMEq9XxzXHzzh4PPhc/FYA==
+return-style@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/return-style/-/return-style-0.8.0.tgz#1c20b753048c47af430d026fd4ac425ff1d4fe37"
+  integrity sha512-6qWc9bUBQNj2JvBe88uJsr+zPxb4Kwob6BISx8Eto2RwwLViOL937T7GFTnWGnFscLM8S2W3VovKk7eVpYysiw==
 
 reusify@^1.0.4:
   version "1.0.4"
@@ -4141,25 +4141,34 @@ terser-webpack-plugin@^1.4.3:
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser-webpack-plugin@^3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-3.0.8.tgz#d1a53442a143e09e00c880e8d77c1e79cb05318b"
-  integrity sha512-ygwK8TYMRTYtSyLB2Mhnt90guQh989CIq/mL/2apwi6rA15Xys4ydNUiH4ah6EZCfQxSk26ZFQilZ4IQ6IZw6A==
+terser-webpack-plugin@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-4.0.0.tgz#d371fe78312c47d33452e465a1096db893613e78"
+  integrity sha512-Gb/bmPMavJsDTYiIocakp9OJhrIBnYrWa5VM0Bb2RngWmszeQUN1xFNh2E8Re+9Cj3/sPrA50Jj/q0nzgLAUuw==
   dependencies:
     cacache "^15.0.5"
     find-cache-dir "^3.3.1"
-    jest-worker "^26.1.0"
+    jest-worker "^26.2.1"
     p-limit "^3.0.2"
     schema-utils "^2.6.6"
     serialize-javascript "^4.0.0"
     source-map "^0.6.1"
-    terser "^4.8.0"
+    terser "^5.0.0"
     webpack-sources "^1.4.3"
 
-terser@^4.1.2, terser@^4.8.0:
+terser@^4.1.2:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
   integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
+
+terser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.0.0.tgz#269640e4e92f15d628de1e5f01c4c61e1ba3d765"
+  integrity sha512-olH2DwGINoSuEpSGd+BsPuAQaA3OrHnHnFL/rDB2TVNc3srUbz/rq/j2BlF4zDXI+JqAvGr86bIm1R2cJgZ3FA==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
@@ -4262,10 +4271,10 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.yarnpkg.com/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-loader@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.1.tgz#9670dcbce2a8c8506d01a37fee042350d02c8c21"
-  integrity sha512-I9Nmly0ufJoZRMuAT9d5ijsC2B7oSPvUnOJt/GhgoATlPGYfa17VicDKPcqwUCrHpOkCxr/ybLYwbnS4cOxmvQ==
+ts-loader@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.2.tgz#ee73ca9350f745799396fff8578ba29b1e95616b"
+  integrity sha512-oYT7wOTUawYXQ8XIDsRhziyW0KUEV38jISYlE+9adP6tDtG+O5GkRe4QKQXrHVH4mJJ88DysvEtvGP65wMLlhg==
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
@@ -4513,10 +4522,10 @@ webpack-extension-reloader@^1.1.4:
     webpack-sources "^1.4.3"
     ws "^7.2.0"
 
-webpack-merge@^5.0.9:
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.0.9.tgz#d5e0e0ae564ae704836d747893bdd2741544bf31"
-  integrity sha512-P4teh6O26xIDPugOGX61wPxaeP918QOMjmzhu54zTVcLtOS28ffPWtnv+ilt3wscwBUCL2WNMnh97XkrKqt9Fw==
+webpack-merge@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.1.1.tgz#c79f36b4ad39a597c3bb780f809b514d65d85d01"
+  integrity sha512-UhIkHAVqeG9EqFfYo7dRELrVfH6HYaOTYM7ssKCwfIIHYnWepGVOFp1E166GwgPGFqV6M68UgRiKOERjVOKIXA==
   dependencies:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
