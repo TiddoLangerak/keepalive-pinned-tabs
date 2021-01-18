@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
-    "clean": "rm -rf dist",
-    "build": "yarn clean && webpack --config webpack.prod.js",
+    "clean": "rimraf dist",
+    "prepublishOnly": "run-s clean build",
+    "build": "webpack --config webpack.prod.js",
     "dev": "webpack -w --config webpack.dev.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
+      "pre-commit": "run-s lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -24,6 +25,8 @@
     "copy-webpack-plugin": "^6.0.3",
     "eslint": "^7.6.0",
     "husky": "^4.2.5",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "terser-webpack-plugin": "^4.0.0",
     "ts-loader": "^8.0.2",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
