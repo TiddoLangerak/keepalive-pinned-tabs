@@ -1,21 +1,16 @@
-import { each, retryUntil, delay } from 'extra-promise'
-import { AbortControllerManager } from './abort-controller-manager'
+import { each } from 'extra-promise'
+import { retryUntil, delay } from 'extra-retry'
 
 browser.windows.onFocusChanged.addListener(() => {
-  const controller = AbortControllerManager.getInstance().renew()
-
   // Tabs cannot be edited when user dragging a tab, so retry it.
   // If you drag and drop tabs quickly, Chrome will crash, so add delay.
-  retryUntil(async () => {
+  retryUntil(delay(100), async () => {
     const tabIds = await getPinnedTabIds()
 
     await moveTabsToCurrentWindow(tabIds)
 
     // Since the tab will be unpinned after moving, pin them again.
     await each(tabIds, pinTab)
-  }, async () => {
-    await delay(100)
-    return controller.isAborted()
   })
 })
 
