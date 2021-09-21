@@ -5,25 +5,30 @@ browser.windows.onFocusChanged.addListener(() => {
   // Tabs cannot be edited when user dragging a tab, so retry it.
   // If you drag and drop tabs quickly, Chrome will crash, so add delay.
   retryUntil(delay(100), async () => {
-    const tabIds = await getPinnedTabIds()
+    const tabs = await getPinnedTabs()
+    const tabIds = tabs.map(x => x.id!)
 
     await moveTabsToCurrentWindow(tabIds)
 
     // Since the tab will be unpinned after moving, pin them again.
     await each(tabIds, pinTab)
+
+    // In Firefox, the order of the tabs will change (https://github.com/BlackGlory/active-pinned-tab/issues/2).
+    await each(tabs, tab => setTabIndex(tab.id!, tab.index))
   })
 })
 
-async function moveTabsToCurrentWindow(tabIds: number[]) {
+// 设置tab的index会导致原本此index的tab会向后移动一位.
+
+async function moveTabsToCurrentWindow(tabIds: number[]): Promise<void> {
   await browser.tabs.move(tabIds, {
     windowId: await getCurrentWindowId()
   , index: 0
   })
 }
 
-async function getPinnedTabIds(): Promise<number[]> {
-  const pinnedTabs = await browser.tabs.query({ pinned: true })
-  return pinnedTabs.map(tab => tab.id!)
+async function getPinnedTabs(): Promise<browser.tabs.Tab[]> {
+  return await browser.tabs.query({ pinned: true })
 }
 
 async function getCurrentWindowId(): Promise<number> {
@@ -33,4 +38,8 @@ async function getCurrentWindowId(): Promise<number> {
 
 async function pinTab(id: number): Promise<void> {
   await browser.tabs.update(id, { pinned: true })
+}
+
+async function setTabIndex(id: number, index: number): Promise<void> {
+  await browser.tabs.move(id, { index: index })
 }
