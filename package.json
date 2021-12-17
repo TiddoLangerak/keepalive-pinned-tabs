@@ -4,9 +4,6 @@
   "repository": "git@github.com:BlackGlory/active-pinned-tab.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
-  "engines": {
-    "node": ">=16"
-  },
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
     "clean": "rimraf dist",
@@ -39,8 +36,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "extra-promise": "^0.20.0",
-    "extra-retry": "^0.3.0",
+    "extra-promise": "^0.21.0",
+    "extra-retry": "^0.3.1",
     "webextension-polyfill": "^0.8.0"
   }
 }

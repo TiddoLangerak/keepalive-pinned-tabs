@@ -61,7 +61,7 @@
   dependencies:
     justypes "^0.1.6"
 
-"@blackglory/types@^0.6.1", "@blackglory/types@^0.6.3":
+"@blackglory/types@^0.6.1", "@blackglory/types@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-0.6.4.tgz#ba511c58d4a8cf321bfc34c4b3c94e8a9b3341bd"
   integrity sha512-QtiPJllbKOXHbX9S/h2NsUbP+vgm6J5w2oQI4N4IuoTdzBbQJZNkcHTf2FeD/1yi/xhzEVdR0L4ZKfLlcmAJbw==
@@ -1263,10 +1263,10 @@ extra-lazy@^0.1.0:
   dependencies:
     lodash.once "^4.1.1"
 
-extra-promise@^0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-0.20.0.tgz#28ebb6285a7ff187b280f58011d66532c75281a1"
-  integrity sha512-i+x315uLOeHv6ofJu4I3VS9yEohQyKAEsN4HTFO2MmkzZOa7VKVFlcKvgPD9NbFBFB15DZQFMxkB6z3EaoLBOg==
+extra-promise@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-0.21.0.tgz#855d0a34d344c7b0bd82f9866ee526367c1770b1"
+  integrity sha512-yPJat8oubkp+sK3ONrsIJ651eN1eGsKJY9+valfiY5ihugjpB+L3gWG7/iGiQZgkIZT4i2N71YMA9itLTWgfvw==
   dependencies:
     "@blackglory/errors" "^1.1.2"
     "@blackglory/go" "^0.1.1"
@@ -1287,14 +1287,14 @@ extra-rand@^0.1.0:
   resolved "https://registry.yarnpkg.com/extra-rand/-/extra-rand-0.1.0.tgz#dd663f2da116c15b5476646fa4025668cd2015b3"
   integrity sha512-Y3DBl2J8PGndKVCeELV0JtUBxHJLO1Yn8SBHabUgLOzddQdJYgOtTWs/xdiK4sc66pOwfFL8CNhTE7bPxu9vwA==
 
-extra-retry@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/extra-retry/-/extra-retry-0.3.0.tgz#34793813518c4a2e2e43b73c5774c22218e08189"
-  integrity sha512-xNZBv2CI2wWT4j4lhYbTP0AMdEAJc9286+uw5kwER558n3Vh4xcv6TDZPnRDMBbQ+pe3mzbsVU6wTrT0xU6C3w==
+extra-retry@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/extra-retry/-/extra-retry-0.3.1.tgz#6b19d52b397c81575a6641e7373901de28543705"
+  integrity sha512-ikZRHHDUQiTBIU7KwqMsCQewXj+ssK9iUB3PnuvhwVpuSEM+Ec0F7qj52JkbTJKMxT+THdPUJIZQ9DMpioEPmw==
   dependencies:
     "@blackglory/go" "^0.1.1"
-    "@blackglory/types" "^0.6.3"
-    extra-promise "^0.20.0"
+    "@blackglory/types" "^0.6.4"
+    extra-promise "^0.21.0"
     extra-timers "^0.2.4"
     justypes "^0.1.6"
 
