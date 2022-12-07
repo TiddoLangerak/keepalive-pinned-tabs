@@ -1,45 +1,94 @@
-import { each } from 'extra-promise'
-import { retryUntil, delay } from 'extra-retry'
+type Tab = browser.tabs.Tab;
 
-browser.windows.onFocusChanged.addListener(() => {
-  // Tabs cannot be edited when user dragging a tab, so retry it.
-  // If you drag and drop tabs quickly, Chrome will crash, so add delay.
-  retryUntil(delay(100), async () => {
-    const tabs = await getPinnedTabs()
-    const tabIds = tabs.map(x => x.id!)
+type RecentlyClosed = { [k: number] : Tab[] };
+const recentlyClosed: RecentlyClosed = {};
 
-    await moveTabsToCurrentWindow(tabIds)
+type GroupedWindows = { [k: number]: number[] }
+let pinnedPerWindow: GroupedWindows  = {};
 
-    // Since the tab will be unpinned after moving, pin them again.
-    await each(tabIds, pinTab)
+type TabsMap = { [k: number]: Tab };
+let tabs: TabsMap = {};
 
-    // In Firefox, the order of the tabs will change (https://github.com/BlackGlory/active-pinned-tab/issues/2).
-    await each(tabs, tab => setTabIndex(tab.id!, tab.index))
-  })
-})
+async function updatePinned(_handle: string) {
+  const pinned = await getPinnedTabs();
+  const newTabs = pinned.reduce((acc, curr) => {
+    if (curr.id !== undefined) {
+      acc[curr.id] = curr;
+    }
+    return acc;
+  }, {} as TabsMap);
+  const grouped = pinned.reduce((acc, curr) => {
+    if (curr.id !== undefined) {
+      const windowId: number = curr.windowId || -1;
+      acc[windowId] = acc[windowId] || [];
+      acc[windowId].push(curr.id);
+    }
+    return acc;
+  }, {} as GroupedWindows);
 
-// 设置tab的index会导致原本此index的tab会向后移动一位.
-
-async function moveTabsToCurrentWindow(tabIds: number[]): Promise<void> {
-  await browser.tabs.move(tabIds, {
-    windowId: await getCurrentWindowId()
-  , index: 0
-  })
+  pinnedPerWindow = grouped;
+  tabs = newTabs;
 }
+updatePinned("init");
+
+browser.tabs.onRemoved.addListener((tabid) => {
+  const tab = tabs[tabid];
+  const wid = tab.windowId;
+  if (tab && wid) {
+    recentlyClosed[wid] = recentlyClosed[wid] || [];
+    recentlyClosed[wid].push(tab);
+    setTimeout(() => {
+      if (recentlyClosed[wid]) {
+        recentlyClosed[wid] = recentlyClosed[wid]
+          .filter(t => t != tab);
+      }
+    }, 1000);
+  }
+  updatePinned("Tab removed");
+});
+
+
+browser.tabs.onCreated.addListener(() => {
+  updatePinned("Tab created");
+});
+
+browser.windows.onCreated.addListener(() => {
+  updatePinned("Window created");
+});
+
+browser.windows.onRemoved.addListener(async (windowId) => {
+  const restore = [...(recentlyClosed[windowId] || [])];
+
+  for (const tab of restore) {
+    try {
+      await browser.tabs.create({
+        active: false,
+        discarded: tab.discarded,
+        // TODO: muted (needs type update)
+        //muted: (tab.mutedInfo || {}).muted,
+        cookieStoreId: tab.cookieStoreId,
+        openInReaderMode: tab.isInReaderMode,
+        pinned: true,
+        title: tab.discarded ? tab.title : undefined,
+        url: tab.url
+      });
+    } catch (e) {
+      console.error("Couldn't add tab", e);
+    }
+  }
+
+  delete recentlyClosed[windowId];
+
+  updatePinned("window removed");
+});
+
+browser.tabs.onUpdated.addListener((_tabId, changeInfo, _tab) => {
+  if (changeInfo.pinned !== undefined) {
+    updatePinned("pin change");
+  }
+});
+
 
 async function getPinnedTabs(): Promise<browser.tabs.Tab[]> {
   return await browser.tabs.query({ pinned: true })
-}
-
-async function getCurrentWindowId(): Promise<number> {
-  const window = await browser.windows.getLastFocused()
-  return window.id!
-}
-
-async function pinTab(id: number): Promise<void> {
-  await browser.tabs.update(id, { pinned: true })
-}
-
-async function setTabIndex(id: number, index: number): Promise<void> {
-  await browser.tabs.move(id, { index: index })
 }
