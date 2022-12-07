@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "keepalive-pinned-tabs",
-  "repository": "git@github.com:TiddoLangerak/active-pinned-tab.git",
+  "repository": "git@github.com:TiddoLangerak/keepalive-pinned-tabs.git",
   "author": "Tiddo Langerak <gh@tiddo.ee>",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "clean": "rimraf dist",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack -w --config webpack.dev.js",
-    "package": "npm run clean && npm run build && mkdir -p package && cd dist && zip -r -FS ../package/active-pinned-tab.zip *"
+    "package": "npm run clean && npm run build && mkdir -p package && cd dist && zip -r -FS ../package/keepalive-pinned-tabs.zip *"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",

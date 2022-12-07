@@ -1,3 +1,28 @@
 This extension keeps your pinned tabs alive when using multiple windows.
 
 When closing a window with pinned tabs, the pinned tabs will be copied to another window.
+
+# Development
+Builds have been tested in the following environments:
+Node v18.4.0
+Npm v8.12.1
+
+It's likely to work with other versions of Node and npm as well.
+
+## Building
+
+```
+npm install
+npm run build
+```
+
+Build is placed in `/dist`
+
+## Packaging
+
+```
+npm install
+npm run package
+```
+
+Package is placed in `/package`
