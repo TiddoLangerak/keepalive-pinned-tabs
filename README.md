@@ -20,6 +20,8 @@ Build is placed in `/dist`
 
 ## Packaging
 
+Note: this must have `zip` installed.
+
 ```
 npm install
 npm run package

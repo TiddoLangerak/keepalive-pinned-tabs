@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist package",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack -w --config webpack.dev.js",
     "package": "npm run clean && npm run build && mkdir -p package && cd dist && zip -r -FS ../package/keepalive-pinned-tabs.zip *"
