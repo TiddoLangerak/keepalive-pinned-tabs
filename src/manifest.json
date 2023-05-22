@@ -3,7 +3,7 @@
 , "name": "Keep pinned tabs alive"
 , "description": "When this extension is enabled, upon closing a window with pinned tabs, the pinned tabs will be moved to another window."
 , "author": "Tiddo Langerak"
-, "version": "0.1.0"
+, "version": "0.2.0"
 , "background": {
     "scripts": ["browser-polyfill.min.js", "background.js"]
   , "persistent": false
