@@ -10,6 +10,7 @@
   }
 , "permissions": [
     "tabs",
-    "cookies"
+    "cookies",
+    "storage"
   ]
 }

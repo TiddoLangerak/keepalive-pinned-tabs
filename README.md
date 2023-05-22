@@ -32,3 +32,4 @@ Package is placed in `/package`
 # Permissions
 - Tabs: to access information about tabs & pinned tabs
 - Cookies: When "transferring" tabs, we effectively recreate them, and copy over certain parameters. One of these is the `cookieStoreId`, which is e.g. needed for multi-account containers. We need the cookies permission to access this value.
+- Storage: for persisting tab info between browser sessions (work in progress)

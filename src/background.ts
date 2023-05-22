@@ -13,6 +13,10 @@ type Tab = browser.tabs.Tab;
  * To deal with this, we only remember closed tabs for 1 second after they're closed.
  * Normally, when closing the window, the window will close easily within 1 second of closing the tabs,
  * so this is enough to move them around.
+ *
+ *
+ * TODO: We should probably handle this through the `Sessions` interface instead.
+ * Could hook into the "onChanged", and check for pins in the last closed window.
  */
 
 
@@ -59,6 +63,10 @@ async function updatePinned(_handle: string) {
 
   pinnedPerWindow = grouped;
   tabs = newTabs;
+
+  await browser.storage.local.set({
+    pins: pinned
+  });
 }
 
 browser.tabs.onRemoved.addListener((tabid) => {
@@ -80,6 +88,14 @@ browser.tabs.onRemoved.addListener((tabid) => {
 browser.windows.onRemoved.addListener(async (windowId) => {
   const restore = [...(recentlyClosed[windowId] || [])];
 
+  await restoreTabs(restore);
+
+  delete recentlyClosed[windowId];
+
+  updatePinned("window removed");
+});
+
+async function restoreTabs(restore: browser.tabs.Tab[]) {
   for (const tab of restore) {
     try {
       await browser.tabs.create({
@@ -97,11 +113,7 @@ browser.windows.onRemoved.addListener(async (windowId) => {
       console.error("Couldn't add tab", e);
     }
   }
-
-  delete recentlyClosed[windowId];
-
-  updatePinned("window removed");
-});
+}
 
 
 // Event handlers to update bookkeeping
@@ -124,6 +136,16 @@ async function getPinnedTabs(): Promise<browser.tabs.Tab[]> {
   return await browser.tabs.query({ pinned: true })
 }
 
+async function init() {
+  const persistedPins: browser.tabs.Tab[] = (await browser.storage.local.get({ pins: [] })).pins;
+  const currentPins = await getPinnedTabs();
+  const restorable = (persistedPins || [])
+    .filter(pin => !currentPins.some(p => p.url === pin.url));
+  await restoreTabs(restorable);
 
-// Initialize the bookkeeping on startup
-updatePinned("init");
+  // Initialize the bookkeeping on startup
+  await updatePinned("init");
+}
+
+init();
+
