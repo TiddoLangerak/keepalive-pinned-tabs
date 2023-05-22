@@ -1,14 +1,45 @@
 type Tab = browser.tabs.Tab;
 
+/**
+ * So when I initially wrote this plugin I didn't leave full comments behind, so now trying to retrace my steps:
+ *
+ * When a window closes, 2 important events are fired:
+ * 1. The browser.tabs.onRemoved event is fired for each tab
+ * 2. The browser.windows.onRemoved event is fired
+ *
+ * We can't access the tabs anymore once event 2 fires, so we'll need to use event 1 to keep track of these.
+ *
+ * Now obviously, the tabs.onRemoved event is also fired when a tab is closed normally.
+ * To deal with this, we only remember closed tabs for 1 second after they're closed.
+ * Normally, when closing the window, the window will close easily within 1 second of closing the tabs,
+ * so this is enough to move them around.
+ */
+
+
+/**
+ * Maps window id -> recently closed tabs
+ */
 type RecentlyClosed = { [k: number] : Tab[] };
 const recentlyClosed: RecentlyClosed = {};
 
+/**
+ * Map of all pins per windoww.
+ */
 type GroupedWindows = { [k: number]: number[] }
 let pinnedPerWindow: GroupedWindows  = {};
 
+/**
+ * Map of tab id -> Tab object
+ * Only keeps track of pinned tabs.
+ */
 type TabsMap = { [k: number]: Tab };
 let tabs: TabsMap = {};
 
+/**
+ * Updates the bookkeeping for pinned tabs.
+ *
+ * The _handle parameter is just for debugging, not used for anything else.
+ */
 async function updatePinned(_handle: string) {
   const pinned = await getPinnedTabs();
   const newTabs = pinned.reduce((acc, curr) => {
@@ -29,7 +60,6 @@ async function updatePinned(_handle: string) {
   pinnedPerWindow = grouped;
   tabs = newTabs;
 }
-updatePinned("init");
 
 browser.tabs.onRemoved.addListener((tabid) => {
   const tab = tabs[tabid];
@@ -45,15 +75,6 @@ browser.tabs.onRemoved.addListener((tabid) => {
     }, 1000);
   }
   updatePinned("Tab removed");
-});
-
-
-browser.tabs.onCreated.addListener(() => {
-  updatePinned("Tab created");
-});
-
-browser.windows.onCreated.addListener(() => {
-  updatePinned("Window created");
 });
 
 browser.windows.onRemoved.addListener(async (windowId) => {
@@ -82,13 +103,27 @@ browser.windows.onRemoved.addListener(async (windowId) => {
   updatePinned("window removed");
 });
 
+
+// Event handlers to update bookkeeping
+
+browser.tabs.onCreated.addListener(() => {
+  updatePinned("Tab created");
+});
+
+browser.windows.onCreated.addListener(() => {
+  updatePinned("Window created");
+});
+
 browser.tabs.onUpdated.addListener((_tabId, changeInfo, _tab) => {
   if (changeInfo.pinned !== undefined) {
     updatePinned("pin change");
   }
 });
 
-
 async function getPinnedTabs(): Promise<browser.tabs.Tab[]> {
   return await browser.tabs.query({ pinned: true })
 }
+
+
+// Initialize the bookkeeping on startup
+updatePinned("init");
